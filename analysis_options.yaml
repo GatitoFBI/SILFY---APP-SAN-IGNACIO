@@ -1,0 +1,11 @@
+include: package:flutter_lints/flutter.yaml
+#Permite expecificar archivos o directorios donde el analizador de Dart no revisará estos archivos en busca de errores o advertencias usalmente para excluir los archivos generados.
+#analyzer:
+#  exclude: [lib/**.g.dart, lib/**_icons.dart]
+
+linter: # Reglas de flutter_lints.
+  rules:
+    prefer_relative_imports: true # Prefiere importaciones relativas
+    avoid_print: true # Evita usar print
+    prefer_const_constructors: true # Usa constructores const cuando sea posible
+    prefer_final_locals: true # Declara variables locales como final si no cambian

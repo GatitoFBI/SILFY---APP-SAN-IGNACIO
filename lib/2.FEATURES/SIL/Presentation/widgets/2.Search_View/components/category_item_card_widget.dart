@@ -1,0 +1,63 @@
+import 'package:flutter/material.dart';
+
+import '../../../widgets/app_text.dart';
+import 'category_items_local_datasource.dart';
+
+class CategoryItemCardWidget extends StatelessWidget {
+  const CategoryItemCardWidget({super.key, required this.item, this.color = Colors.blue});
+  final CategoryItem item;
+
+  final height = 200.0;
+
+  final width = 175.0;
+
+  final Color borderColor = const Color(0xffE2E2E2);
+  final double borderRadius = 18;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(top: 5, bottom: 5),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: color.withOpacity(0.7),
+          width: 2,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 120,
+            width: 120,
+            child: imageWidget(),
+          ),
+          SizedBox(
+            height: 60,
+            child: Center(
+              child: AppText(
+                text: item.name,
+                textAlign: TextAlign.center,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget imageWidget() {
+    return SizedBox(
+      child: Image.asset(
+        item.imagePath,
+        fit: BoxFit.contain,
+      ),
+    );
+  }
+}

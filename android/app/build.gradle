@@ -1,0 +1,85 @@
+import java.util.Properties
+import java.io.FileInputStream
+
+plugins {
+    id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    namespace = "video.mondragon.app_san_ignacio"
+    compileSdk = 35
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId = "video.mondragon.app_san_ignacio"
+        minSdk = 25
+        targetSdk = 35
+        versionCode = 13
+        versionName = "1.0.4"
+
+        // ✅ Evita crasheos en algunos dispositivos al usar WebView o plugins nativos
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = keystoreProperties["keyAlias"] as String
+            keyPassword = keystoreProperties["keyPassword"] as String
+
+            def storeFilePath = keystoreProperties["storeFile"]
+            if (storeFilePath != null) {
+                storeFile = file(storeFilePath)
+            }
+
+            storePassword = keystoreProperties["storePassword"] as String
+        }
+    }
+
+    // ✅ Oculta warnings del compilador Java
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:none"
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.getByName("release")
+            minifyEnabled false
+            shrinkResources false
+            // ✅ Evita problemas con plugins no ofuscados
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig = signingConfigs.getByName("release")
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation 'com.google.ar:core:1.41.0'
+}

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1067374039143",
+    "project_id": "sil-project-32aca",
+    "storage_bucket": "sil-project-32aca.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067374039143:android:cc95320488c0e1c34404c2",
+        "android_client_info": {
+          "package_name": "video.mondragon.app_san_ignacio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067374039143-80apcovp4se9tmt8detul0lp47r4o7mu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "video.mondragon.app_san_ignacio",
+            "certificate_hash": "ba814fe9171159a652453eedfb4edef9f16d4371"
+          }
+        },
+        {
+          "client_id": "1067374039143-5uqpau6j990f82im0hm4h8vkdkgmrpnv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClfIPHY1zNZUPNojp9JUIXMwcMYDCghkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067374039143-5uqpau6j990f82im0hm4h8vkdkgmrpnv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

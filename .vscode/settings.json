@@ -1,0 +1,27 @@
+{
+  //?Acciones cuando Guardemos los archivos:
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "always"
+  },
+
+  //?Definir comandos personalizados:
+  "command-runner.commands": {
+    "clean": "flutter clean",
+    "pub get": "flutter pub get",
+    "build_runner": "flutter pub run build_runner build",
+    "ultima_version_dependencias": "flutter pub upgrade --major-versions",
+    "build_runner_with_failures": "dart run build_runner build --delete-conflicting-outputs",
+    "flutter_build_apk": "flutter build apk",
+    "flutter_app_bundle": "flutter build appbundle --release",
+    "flutter_todo": "flutter clean ; flutter pub get ; flutter run"
+  },
+
+  //?Para que no se vea en Vs Code algunas carpetas o archivos:
+  "files.exclude": {
+    "pubspec.lock": true,
+    ".metadata": true,
+    ".flutter-plugins-dependencies": true,
+    ".flutter-plugins": true
+  }
+}
